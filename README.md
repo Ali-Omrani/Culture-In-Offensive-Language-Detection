@@ -3,7 +3,7 @@ Source code for _**Cultural Diversity Enhances Offensive Language Detection in M
 ## Abstract
 The proliferation of offensive content across diverse languages online necessitates culturally-aware NLP solutions. While Cross-Lingual Transfer Learning (CLTL) shows promise in other NLP tasks, its application to offensive language detection overlooks crucial cultural nuances in how offensiveness is perceived. This work investigates the effectiveness of CLTL for offensive language detection, considering both linguistic and cultural factors. Specifically, we investigated transfer learning across 105 language pairs, and uncovered several key findings. Firstly, training exclusively on English data may impede performance in certain target languages. Secondly, linguistic proximity between languages does not have a significant impact on transferability. Lastly, our study revealed a significant correlation between cultural distance and performance. Importantly, for each unit increase of cultural distance, there was an increase of 0.31 in the AUC. These findings emphasize the limitations of English-centric approaches and highlight the need to integrate cultural context into NLP solutions for offensive language detection.
 
-![Figure 1: comparison of learning dynamics over train and validation set for LoRA and fine-tuning](img/Figure1.png)
+![Figure 1: comparison of learning dynamics over train and validation set for LoRA and fine-tuning](img/Figure1-crosscultural.png)
 
 
 
