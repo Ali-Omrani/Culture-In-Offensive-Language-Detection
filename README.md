@@ -37,6 +37,12 @@ The proliferation of offensive content across diverse languages online necessita
 <a name="replication"></a>
 ## Replication
 
+### Gathering the Data
+
+First, download the data from the sources
+
+![Data sources table](img/data_table.png)
+
 ### Running Experiments
 
 To replicate the experiments, follow these steps:
