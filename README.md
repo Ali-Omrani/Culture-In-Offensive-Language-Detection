@@ -37,11 +37,31 @@ The proliferation of offensive content across diverse languages online necessita
 <a name="replication"></a>
 ## Replication
 
-### Gathering the Data
+### Gathering the and preparing the data
 
-First, download the data from the sources
+First, download the data from the sources below and put them all in a `Data` directory. Put the dataset for each langauge under a directory named after the langauge
+
+
 
 ![Data sources table](img/data_table_new.png)
+
+```
+example_folder/
+│
+├── Data/
+│   ├── Arabic/
+│   │   └── (contents related to Arabic data)
+│   │
+│   ├── Danish/
+│   │   └── (contents related to Danish data)
+│   │
+│   └── German/
+│       └── (contents related to German data)
+│
+```
+
+Use the [Data Preparation Notebook](notebooks/data_prep.ipynb)  notebook to prepare the data for experiment. This notebook generates the train/dev/test splits for each dataset.
+
 
 ### Running Experiments
 
@@ -51,23 +71,24 @@ To replicate the experiments, follow these steps:
 
 2. Open a terminal and navigate to the root directory of the repository.
 
-3. Execute the provided script `run_experiments.sh`:
+3. Execute the provided script `run_experiment.sh`:
 
     ```bash
     cd scripts
-    chmod +x acl_exp.sh
-    ./acl_exp.sh
+    chmod +x run_experiment.sh
+    ./run_experiment.sh
     ```
 
 ### Understanding the Script
 
-The script `acl_exp.sh` automates the process of running experiments with different configurations. Here's what it does:
+The script `run_experiment.sh` automates the process of running experiments with different configurations. Here's what it does:
 
-- It sets up different parameters such as GPUs to use, datasets, noise ratios, learning rates, etc., for each experiment configuration.
+- It sets up different parameters such as GPUs to use, datasets, noise ratios, learning rates, etc., for each experiment configuration enusring that the computation is balanced between gpus.
 
-- It iterates through various combinations of parameters and runs the training script `train.py` for each configuration.
+- It iterates through languages, and trains a model for each language initializing from XLM-r.
 
-- Each experiment is run in a detached screen session, facilitating parallel execution.
+- Then the script iterates through all langauge pairs, and trains a model for each target lanaguges, intializing the model with the best checkpoint of auxiliary language.
+
 
 ### Customization
 
@@ -79,16 +100,16 @@ You can customize the experiments by modifying the script `acl_exp.sh`:
 
 Here are the relevant parameters used in the `train.py` script:
 
+
 - `--TRAIN_BATCH_SIZE`: Training batch size.
 - `--VALID_BATCH_SIZE`: Validation batch size.
 - `--LEARNING_RATE`: Learning rate.
 - `--EPOCHS`: Number of training epochs.
 - `--LM`: pretrained language model to use.
-- `--method`: Method used for training.
 - `--dataset_name`: Dataset for training.
+- `--limited_data`: The size of traning set for each data to be sampled
 - `--label_col`: Label column name.
-- `--balance`: Create a balanced dataset; default strategy is undersampling.
-- `--balance_ratio`: Ratio of positive class in balanced experiments.
+- `--prev_model`: path to model to initialize from (used in the second stage of script)
 - `--warmup_ratio`: Ratio for linear scheduler warmup.
 - `--weight_decay`: L2 regularization parameter used as weight decay param in AdamW.
 - `--noise_ratio`: Ratio of training samples that will get their labels flipped.
@@ -97,7 +118,11 @@ Here are the relevant parameters used in the `train.py` script:
 
 ### Notebooks
 
-Use the notebook in [Post-Hoc Analysis Notebook](notebooks/post-hoc-analysis.ipynb) to generate the figures in the paper.
+Use the notebook in [Post-Hoc Analysis Notebook](notebooks/pilot_notebook.ipynb) to gather results and generate the figures.
+
+### Statistical Analysis
+
+
 ### License
 
 This project is licensed under the [MIT License](LICENSE).
