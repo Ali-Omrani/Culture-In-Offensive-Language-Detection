@@ -118,9 +118,12 @@ Here are the relevant parameters used in the `train.py` script:
 
 ### Notebooks
 
-Use the notebook in [Post-Hoc Analysis Notebook](notebooks/pilot_notebook.ipynb) to gather results and generate the figures.
+Use the notebook in [Post-Hoc Analysis Notebook](notebooks/pilot_notebook.ipynb) to gather results and generate figure 2.
 
 ### Statistical Analysis
+
+Use the R code in [Regression Analysis](stats/regression_analysis.r) to run the statistical analysis and generate figure 1.
+
 
 
 ### License
