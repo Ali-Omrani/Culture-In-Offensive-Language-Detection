@@ -41,7 +41,7 @@ The proliferation of offensive content across diverse languages online necessita
 
 First, download the data from the sources
 
-![Data sources table](img/data_table.png)
+![Data sources table](img/data_table_new.png)
 
 ### Running Experiments
 
