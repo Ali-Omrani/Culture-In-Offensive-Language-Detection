@@ -4,7 +4,7 @@ library(ggrepel)
 library(dplyr)
 library(ggrepel)  
 library(RColorBrewer)  
-d_acl <- read_csv("data/raw/delta_15lang.csv") 
+d_acl <- read_csv("./delta_15lang.csv") 
 model = lm(delta_auc ~ l_distance + cultural_distance , data = d_acl)
 summary(model)
 data <- d_acl
