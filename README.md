@@ -43,7 +43,7 @@ First, download the data from the sources below and put them all in a `Data` dir
 
 
 
-![Data sources table](img/data_table_new.png)
+![Data sources table](img/data_table.png)
 
 ```
 example_folder/
