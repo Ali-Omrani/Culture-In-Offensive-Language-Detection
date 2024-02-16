@@ -92,7 +92,7 @@ The script `run_experiment.sh` automates the process of running experiments with
 
 ### Customization
 
-You can customize the experiments by modifying the script `acl_exp.sh`:
+You can customize the experiments by modifying the script `run_experiment.sh`:
 
 - Adjust the parameters in the script to suit your specific experiment setup.
 
