@@ -122,7 +122,7 @@ Use the notebook in [Post-Hoc Analysis Notebook](notebooks/pilot_notebook.ipynb)
 
 ### Statistical Analysis
 
-Use the R code in [Regression Analysis](stats/regression_analysis.r) to run the statistical analysis and generate figure 1.
+Use the R code in [Regression Analysis](stats/regression_analysis.r) to run the statistical analysis and generate figure 1. The [data](stats/delta_15lang.csv) for crosslingual transfer experiment including the cultural and linguistic distances is also included. 
 
 
 
